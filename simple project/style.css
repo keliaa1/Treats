@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'poppins';
+}
+header{
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-image: url('office.jpg');
+    background-size: cover;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('office.jpg');
+    background-position: center; 
+    background-repeat: no-repeat
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar img{
+    width: 100px;
+    margin-left: 40px;
+    height: 100px;
+}
+.navbar ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    margin-right: 40px;
+}
+.navbar ul a{
+    color: white;
+    text-decoration: none;
+}
+.navbar ul a:hover{
+    color: royalblue;
+    transition: 0.5s;
+}
+.content{
+    text-align: center;
+    color: #fff;
+    margin-top: 100px;
+}
+.content h2{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.content p{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.content button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+}
+.content button:hover{
+    background: royalblue;
+    color: white;
+    transition: 0.5s;
+}

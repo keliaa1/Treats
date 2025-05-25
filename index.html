@@ -5,166 +5,265 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treats</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="Lowercase.png">
-
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d87093',
+                        secondary: '#4d2600',
+                        accent: '#ffffb3',
+                    },
+                    fontFamily: {
+                        'emblema': ['"Emblema One"', 'cursive'],
+                        'quicksand': ['Quicksand', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 1s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="icon" type="image/png" href="/simple project/Lowercase.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <h1>Treats</h1>
+<body class="font-quicksand overflow-x-hidden">
+    <header class="bg-primary min-h-screen">
+        <!-- Navbar -->
+        <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-md z-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <a href="#" class="font-emblema text-4xl text-primary">Treats</a>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" class="text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
+                        <a href="#recipes"
+                            class="text-gray-800 hover:text-primary transition-colors duration-300">Recipes</a>
+                        <a href="#footer"
+                            class="text-gray-800 hover:text-primary transition-colors duration-300">Contact</a>
+                    </div>
+                    <button class="md:hidden" id="menuButton">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="links">
-                <a href="#home">Home</a>
-                <a href="#recipes">Recipies</a>
-                <a href="#footer">Contact</a>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobileMenu">
+                <div class="px-4 py-2 space-y-2 bg-white">
+                    <a href="#home"
+                        class="block text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="#recipes"
+                        class="block text-gray-800 hover:text-primary transition-colors duration-300">Recipes</a>
+                    <a href="#footer"
+                        class="block text-gray-800 hover:text-primary transition-colors duration-300">Contact</a>
+                </div>
             </div>
-        </div>
+        </nav>
 
-        <div id="home" class="body">
-            <div class="text">
-                <h3>Treat yourself!</h3><br>
-                <p>Worldwide recipes for delicious donuts</p><br>
-                <a href="">View recipes</a>
-            </div>
-            <div class="image">
-                <img src="pile-tasty-donuts-front-view-removebg-preview.png" alt="">
+        <!-- Hero Section -->
+        <div id="home" class="container mx-auto px-4 pt-32 pb-16">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                    <h3 class="text-5xl md:text-6xl font-bold text-white mb-4">Treat yourself!</h3>
+                    <p class="text-xl text-white/90 mb-8">Worldwide recipes for delicious donuts</p>
+                    <a href="#recipes"
+                        class="inline-block bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105">View
+                        recipes</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/pile-tasty-donuts-front-view-removebg-preview.png" alt=""
+                        class="w-full max-w-lg mx-auto hover:animate-spin-slow transition-all duration-1000">
+                </div>
             </div>
         </div>
     </header>
-    <div class="chefs">
-        <div class="promo">
-            <h3>Enjoy recipes from our world famous chefs</h3>
-        </div>
-        <div class="card-container">
-            <div class="card">
-                <img src="chef1.jpg" alt="">
-                <div class="card-content">
-                    <h3>Chef Joe doe</h3>
-                    <span>Michellin star chef</span>
-                </div>
-            </div>
-            <div class="card">
-                <img src="chef2.jpg" alt="">
-                <div class="card-content">
-                    <h3>Chef Emily</h3>
-                    <span>Michellin star chef</span>
-                </div>
-            </div>
-            <div class="card">
-                <img src="chef 3.jpg" alt="">
-                <div class="card-content">
-                    <h3>Chef Jane</h3>
-                    <span>Michellin star chef</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="recipes" class="recipes">
-        <h3>Most popular recipes</h3>
-        <div class="all">
-            <div class="donut">
-                <img class="donut1"
-                    src="pink-donut-with-sprinkles-sweet-treat-delicious-dessert-sugary-confectionery-bakery-food-photography.png"
-                    alt="">
-            </div>
-            <div class="desc">
-                <h4>Strawberry glazed donut with sprinklers</h4>
-                <ul>
-                    <p>ingredients:</p>
-                    <li>flour, yeast, sugar, salt</li>
-                    <li>sugar, salt</li>
-                    <li>milk, butter</li>
-                    <li>eggs, and oil for frying</li>
-                    <li>strawberries, confectioners sugar, milk, and vanilla extract</li>
-                </ul>
-            </div>
-        </div>
-        <div class="chocolate">
-            <div class="choco_desc">
-                <h4>Chocolate frosted donut</h4>
-                <ul>
-                    <p>ingredients:</p>
-                    <li>flour, yeast, sugar, salt</li>
-                    <li>sugar, salt</li>
-                    <li>milk, butter</li>
-                    <li>eggs, and oil for frying</li>
-                    <li>Chocolate, confectioners sugar, milk, and vanilla extract</li>
-                </ul>
-            </div>
-            <div class="donut">
-                <img class="donut1" src="f895391c-af36-41db-a815-1df526f638f7-removebg-preview.png" alt="">
-            </div>
-        </div>
-        <div class="vanilla">
-            <div class="donut">
-                <img class="donut1" src="vanilla-removebg-preview.png" alt="">
-            </div>
-            <div class="vanilla_desc">
-                <h4>Classic Vanilla Frosted Donut</h4>
-                <ul>
-                    <p>ingredients:</p>
-                    <li>flour, yeast, sugar, salt</li>
-                    <li>sugar, salt</li>
-                    <li>milk, butter</li>
-                    <li>eggs, and oil for frying</li>
-                    <li>strawberries, confectioners sugar, milk, and vanilla extract</li>
 
-                </ul>
+    <!-- Chefs Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Enjoy recipes from our world famous chefs
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Chef Cards -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                    <img src="images/chef1.jpg" alt="" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-primary mb-2">Chef Joe doe</h3>
+                        <span class="text-gray-600">Michellin star chef</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                    <img src="images/chef2.jpg" alt="" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-primary mb-2">Chef Emily</h3>
+                        <span class="text-gray-600">Michellin star chef</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                    <img src="images/chef 3.jpg" alt="" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-primary mb-2">Chef Jane</h3>
+                        <span class="text-gray-600">Michellin star chef</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <h3 class="h3">Treats</h3>
-    <footer id="footer" class="footer">
-        <div class="map">
-            <h2>Visit us</h2><br>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3526.0800289696917!2d29.512365774363165!3d-1.600715736049333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcf9d0b19e6ea9%3A0x3ff8eddb2e77ab88!2sRwanda%20Coding%20Academy!5e1!3m2!1sen!2srw!4v1742327375924!5m2!1sen!2srw"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="recipes" class="py-16">
+        <div class="container mx-auto px-4">
+            <h3
+                class="text-4xl font-bold text-center text-primary mb-12 border-b-2 border-primary pb-2 inline-block mx-auto">
+                Most popular recipes</h3>
+
+            <!-- Strawberry Recipe -->
+            <div
+                class="flex flex-col md:flex-row items-center gap-8 mb-16 p-6 rounded-lg hover:bg-primary hover:text-white transition-all duration-300">
+                <div class="md:w-1/2">
+                    <img src="images/pink-donut-with-sprinkles-sweet-treat-delicious-dessert-sugary-confectionery-bakery-food-photography.png"
+                        alt="" class="w-full max-w-md mx-auto hover:animate-spin-slow transition-all duration-1000">
+                </div>
+                <div class="md:w-1/2">
+                    <h4 class="text-3xl font-bold mb-4 text-white">Strawberry glazed donut with sprinklers</h4>
+                    <ul class="space-y-2">
+                        <li class="font-bold text-white">Ingredients:</li>
+                        <li class="text-white">flour, yeast, sugar, salt</li>
+                        <li class="text-white">sugar, salt</li>
+                        <li class="text-white">milk, butter</li>
+                        <li class="text-white">eggs, and oil for frying</li>
+                        <li class="text-white">strawberries, confectioners sugar, milk, and vanilla extract</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chocolate Recipe -->
+            <div
+                class="flex flex-col md:flex-row-reverse items-center gap-8 mb-16 p-6 rounded-lg hover:bg-secondary hover:text-white transition-all duration-300">
+                <div class="md:w-1/2">
+                    <img src="images/f895391c-af36-41db-a815-1df526f638f7-removebg-preview.png" alt=""
+                        class="w-full max-w-md mx-auto hover:animate-spin-slow transition-all duration-1000">
+                </div>
+                <div class="md:w-1/2">
+                    <h4 class="text-3xl font-bold mb-4">Chocolate frosted donut</h4>
+                    <ul class="space-y-2">
+                        <li class="font-bold">Ingredients:</li>
+                        <li>flour, yeast, sugar, salt</li>
+                        <li>sugar, salt</li>
+                        <li>milk, butter</li>
+                        <li>eggs, and oil for frying</li>
+                        <li>Chocolate, confectioners sugar, milk, and vanilla extract</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Vanilla Recipe -->
+            <div
+                class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-lg hover:bg-accent hover:text-black transition-all duration-300">
+                <div class="md:w-1/2">
+                    <img src="images/vanilla-removebg-preview.png" alt=""
+                        class="w-full max-w-md mx-auto hover:animate-spin-slow transition-all duration-1000">
+                </div>
+                <div class="md:w-1/2">
+                    <h4 class="text-3xl font-bold mb-4">Classic Vanilla Frosted Donut</h4>
+                    <ul class="space-y-2">
+                        <li class="font-bold">Ingredients:</li>
+                        <li>flour, yeast, sugar, salt</li>
+                        <li>sugar, salt</li>
+                        <li>milk, butter</li>
+                        <li>eggs, and oil for frying</li>
+                        <li>strawberries, confectioners sugar, milk, and vanilla extract</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="newsletter">
-            <h4>Love our recipes?</h4>
-            <span>Subscribe to our newsletter to get more delicious recipes</span>
-            <form>
-                <input type="email" class="email" placeholder="email..."><br>
-                <input type="text" class="message" placeholder="message..."><br>
-                <button type="submit">submit</button>
-            </form>
-        </div>
-        <div class="links">
-            <ul>
-                <h4>links</h4>
-                <hr><br>
-                <li><a href="">privancy</a></li>
-                <li><a href="">Contact info</a></li>
-                <li><a href="">Security</a></li>
-                <li><a href="">Credits</a></li>
-            </ul>
-            <div class="social">
-                <h5>Follow us</h5><br>
-                <a href="https://www.instagram.com/_simbiii__/"><img src="Instagram.png" alt=""></a>
-                <a href="#"><img src="LinkedIn.png" alt=""></a>
-                <a href="#"><img src="Facebook.png" alt=""></a>
-                <a href="#"><img src="X.png" alt=""></a>
-                <p>&copy; 2025 Treats. All Rights Reserved.</p>
-                <p>made by Kelia</p>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Map -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">Visit us</h2>
+                    <iframe class="w-full h-64 rounded-lg"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3526.0800289696917!2d29.512365774363165!3d-1.600715736049333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcf9d0b19e6ea9%3A0x3ff8eddb2e77ab88!2sRwanda%20Coding%20Academy!5e1!3m2!1sen!2srw!4v1742327375924!5m2!1sen!2srw"
+                        style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Love our recipes?</h4>
+                    <p class="mb-4">Subscribe to our newsletter to get more delicious recipes</p>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="email..."
+                            class="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition-colors duration-300">
+                        <input type="text" placeholder="message..."
+                            class="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition-colors duration-300">
+                        <button type="submit"
+                            class="w-full bg-primary text-white px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-colors duration-300">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Links</h4>
+                    <hr class="border-gray-700 mb-4">
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Contact info</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Security</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Credits</a></li>
+                    </ul>
+                    <div class="mt-8">
+                        <h5 class="text-lg font-bold mb-4">Follow us</h5>
+                        <div class="flex space-x-4">
+                            <a href="https://www.instagram.com/_simbiii__/"
+                                class="transform hover:scale-110 transition-transform duration-300">
+                                <img src="images/Instagram.png" alt="" class="w-8 h-8">
+                            </a>
+                            <a href="#" class="transform hover:scale-110 transition-transform duration-300">
+                                <img src="images/LinkedIn.png" alt="" class="w-8 h-8">
+                            </a>
+                            <a href="#" class="transform hover:scale-110 transition-transform duration-300">
+                                <img src="images/Facebook.png" alt="" class="w-8 h-8">
+                            </a>
+                            <a href="#" class="transform hover:scale-110 transition-transform duration-300">
+                                <img src="images/X.png" alt="" class="w-8 h-8">
+                            </a>
+                        </div>
+                        <p class="mt-4 text-gray-400">&copy; 2025 Treats. All Rights Reserved.</p>
+                        <p class="text-gray-400">made by Kelia</p>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
